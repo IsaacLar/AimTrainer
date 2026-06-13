@@ -767,8 +767,28 @@ MonoBehaviour:
       m_Action: Sprint
       m_Flags: 0
     m_Flags: 0
-  defaultMoveSpeed: 500
+  pauseAction:
+    m_Name: Pause
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 7a928b29-69c4-425d-8df2-48986bb67bad
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: 17ad8266-1aea-47c6-96a2-7e684ea0c421
+      m_Path: <Keyboard>/escape
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Pause
+      m_Flags: 0
+    m_Flags: 0
+  playerCam: {fileID: 330585545}
+  defaultMoveSpeed: 5
   jumpForce: 5
+  sensX: 60
+  sensY: 60
 --- !u!1 &832575517
 GameObject:
   m_ObjectHideFlags: 0
