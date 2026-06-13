@@ -1,4 +1,3 @@
-using System.Threading;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -10,6 +9,7 @@ public class PlayerScript : MonoBehaviour
     public InputAction jumpAction;
     public InputAction sprintAction;
     public InputAction pauseAction;
+    public InputAction shootAction;
     public Camera playerCam;
 
     public float defaultMoveSpeed;
@@ -24,6 +24,8 @@ public class PlayerScript : MonoBehaviour
     private bool mouseCaptured;
     private float xRotation;
     private float yRotation;
+    private Ray ray;
+    private RaycastHit hit;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -42,6 +44,7 @@ public class PlayerScript : MonoBehaviour
         jumpAction.Enable();
         sprintAction.Enable();
         pauseAction.Enable();
+        shootAction.Enable();
     }
 
     private void OnDisable()
@@ -50,6 +53,7 @@ public class PlayerScript : MonoBehaviour
         jumpAction.Disable();
         sprintAction.Disable();
         pauseAction.Disable();
+        shootAction.Disable();
     }
 
     // Update is called once per frame
@@ -102,6 +106,19 @@ public class PlayerScript : MonoBehaviour
             } else
             {
                 CaptureMouse();
+            }
+        }
+
+        //Shooting logic
+        if (shootAction.WasPressedThisFrame())
+        {
+            ray = new Ray(playerCam.transform.position, playerCam.transform.forward);
+            if (Physics.Raycast(ray, out hit))
+            {
+                if (hit.collider.CompareTag("Target"))
+                {
+                    Debug.Log("Target hit");
+                }
             }
         }
     }
