@@ -117,7 +117,9 @@ public class PlayerScript : MonoBehaviour
             {
                 if (hit.collider.CompareTag("Target"))
                 {
-                    Debug.Log("Target hit");
+                    Debug.Log("Target Hit");
+                    Target target = hit.collider.GetComponent<Target>();
+                    target.OnHit();
                 }
             }
         }
