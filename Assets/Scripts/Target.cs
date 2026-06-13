@@ -18,8 +18,6 @@ public class Target : MonoBehaviour
         //Increment player score
         targetMinigame.score++;
         //Prompt another target to be spawned
-        targetMinigame.SpawnTarget();
-        //Target Deletes itself
-        Destroy(gameObject);
+        targetMinigame.RespawnTarget(gameObject);
     }
 }

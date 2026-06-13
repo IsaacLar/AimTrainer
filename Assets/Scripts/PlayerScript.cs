@@ -129,7 +129,6 @@ public class PlayerScript : MonoBehaviour
                 //If the collider hits a target
                 if (hit.collider.CompareTag("Target"))
                 {
-                    Debug.Log("Target Hit");
                     //Send a message to the target telling it its been hit
                     Target target = hit.collider.GetComponent<Target>();
                     target.OnHit();

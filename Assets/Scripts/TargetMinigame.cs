@@ -48,4 +48,9 @@ public class TargetMinigame : MonoBehaviour
         Vector3 spawnPos = new Vector3(Random.Range(minCoords.x, maxCoords.x), Random.Range(minCoords.y, maxCoords.y), 36.5f);
         GameObject newTarget = Instantiate(target, spawnPos, transform.rotation);
     }
+
+    public void RespawnTarget(GameObject target)
+    {
+        target.transform.position = new Vector3(Random.Range(minCoords.x, maxCoords.x), Random.Range(minCoords.y, maxCoords.y), 36.5f);
+    }
 }
